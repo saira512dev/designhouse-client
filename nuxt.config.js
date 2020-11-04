@@ -29,17 +29,16 @@ export default {
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
-    // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
-    // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
-    // https://go.nuxtjs.dev/content
     '@nuxt/content',
     '@nuxtjs/dotenv',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseUrl: process.env.API_URL
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
   content: {},
