@@ -54,14 +54,16 @@
                 </div>
 
                 <!-- Before Login -->
-                <ul class="before-login font-14 fw-300 text-uppercase ">
-                    <li>
-                        <nuxt-link :to="{ name: 'register'}" >Sign up</nuxt-link>
-                    </li>
-                    <li>
-                        <nuxt-link :to="{ name: 'login'}" >Login</nuxt-link>
-                    </li>
-                </ul>
+                <template v-if="!$auth.loggedIn">
+                    <ul class="before-login font-14 fw-300 text-uppercase ">
+                        <li>
+                            <nuxt-link :to="{ name: 'register'}" >Sign up</nuxt-link>
+                        </li>
+                        <li>
+                            <nuxt-link :to="{ name: 'login'}" >Login</nuxt-link>
+                        </li>
+                    </ul>
+                </template>
                 <!-- End Before Login -->
 
                 <!-- After Login -->
