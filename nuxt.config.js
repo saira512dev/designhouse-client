@@ -18,13 +18,10 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [
-    '@/assets/scss/main.scss'
-  ],
+  css: [ '@/assets/scss/main.scss'],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-  ],
+  plugins: [ '~plugins/vform' ],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -40,7 +37,22 @@ export default {
     '@nuxtjs/axios',
     '@nuxt/content',
     '@nuxtjs/dotenv',
+    '@nuxtjs/auth',
+
   ],
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'login', method: 'post', propertyName: 'token' },
+          logout: { url: 'logout', method: 'post' },
+          user: { url: 'me', method: 'get', propertyName: 'data' }
+        },
+        // tokenRequired: true,
+        // tokenType: 'bearer',
+      }
+    }
+  },
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
