@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@nuxt/content": "^1.9.0",
+    "@nuxtjs/auth": "^4.9.1",
     "@nuxtjs/axios": "^5.12.2",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/router": "^1.5.0",
@@ -17,6 +18,7 @@
     "bootstrap-vue": "^2.17.3",
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
+    "vform": "^1.0.1",
     "webpack-ruleset": "^0.1.8"
   },
   "devDependencies": {
