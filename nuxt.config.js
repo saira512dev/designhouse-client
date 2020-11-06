@@ -1,3 +1,4 @@
+require('dotenv').config();
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -38,8 +39,18 @@ export default {
     '@nuxt/content',
     '@nuxtjs/dotenv',
     '@nuxtjs/auth',
+    '@nuxtjs/proxy',
 
   ],
+  proxy: {
+    '/api': {
+      target: 'http://designhouse.test/',
+      pathRewrite: {
+        '^/api' : ''
+        }
+      },
+      // changeOrigin: true
+  },
   auth: {
     strategies: {
       local: {
@@ -56,7 +67,8 @@ export default {
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
   axios: {
-    baseUrl: process.env.API_URL
+    baseUrl: process.env.API_URL,
+    // proxy:true
   },
 
   // Content module configuration (https://go.nuxtjs.dev/config-content)
