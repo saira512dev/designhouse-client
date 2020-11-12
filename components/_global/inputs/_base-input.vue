@@ -35,6 +35,10 @@ export default {
             type: String,
             default:'text'
         },
+        readonly: {
+            type: Boolean,
+            default: false
+        }
     },
 
     methods: {
