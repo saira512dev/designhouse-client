@@ -81,14 +81,14 @@
                         >
                             <img
                                 class="user-thumb"
-                                src="~/assets/images/profile.png"
+                                :src="$auth.user.photo_url"
                             />
                             <div class="usr-info">
                                 <span class="user-name font-14 fw-500"
-                                    >John Doe</span
+                                    >{{ $auth.user.name }}</span
                                 >
                                 <span class="user-deg font-10 fw-300"
-                                    >Sr. UI Designer</span
+                                    >{{ $auth.user.tagline }}</span
                                 >
                                 <span class="down-chevron">
                                     <i class="fa fa-angle-down"></i>
@@ -98,14 +98,14 @@
                         <div
                             class="dropdown-menu user-dropdown font-14 fw-500"
                             aria-labelledby="userDropdown"
-                        >
-                            <div class="dropdown-title-group font-12 fw-500">
-                                <span class="dropdown-title text-uppercase"
-                                    >Your Account</span
-                                >
-                            </div>
+                        >  
+                            <nuxt-link to="/settings/dashboard"
+                                class="dropdown-item " title="Dashboard">
+                                <i class="fa fa-tachometer-alt"></i>
+                                Dashboard
+                            </nuxt-link>
                             <a
-                                class="dropdown-item mt-28"
+                                class="dropdown-item "
                                 href="#"
                                 title="Profile"
                             >
