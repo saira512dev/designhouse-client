@@ -147,6 +147,8 @@ export default {
         } catch (err) {
             if(err.response.status === 404){
                 error({statusCode: 404, message: "Design not found"});
+            } else if(err.response.status === 401){
+                redirect('/login');
             } else {
                 error({statusCode: 500, message: "Internal server error"});
             }
@@ -156,7 +158,11 @@ export default {
     methods: {
         submit() {
             this.form.put(`/designs/${this.$route.params.id}`)
-            .then(res => consile.log(res))
+            .then(res => {
+                setTimeout(() => {
+                    this.$router.push({ name: 'settings.designs'
+                }, 1000);})
+            })
             .catch(err => console.log(err.response));
         }
     },
