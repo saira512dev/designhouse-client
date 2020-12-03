@@ -21,6 +21,7 @@
     "core-js": "^3.6.5",
     "nuxt": "^2.14.6",
     "vform": "^1.0.1",
+    "vue2-google-maps-withscopedautocomp": "^0.12.1",
     "webpack-ruleset": "^0.1.8"
   },
   "devDependencies": {
