@@ -33,6 +33,10 @@ const routes = [
         name:'designs.edit',
         component: page('user/designs/edit.vue')
     },
+    {   path: '/tags/:tag', 
+        name:'tags.tag',
+        component: page('user/designs/tag.vue')
+    },
     {   path: '/settings', 
         component: page('user/settings/index.vue'),
         children: [
@@ -47,7 +51,15 @@ const routes = [
               component: page('user/settings/designs.vue')
             }
         ]
-    }
+    },
+    {   path: '/designs', 
+        name:'designs.search',
+        component: page('designs/search.vue')
+    },
+    {   path: '/designs/:slug', 
+        name:'designs.show',
+        component: page('designs/show.vue')
+    },
 
 ];
 
