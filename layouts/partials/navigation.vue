@@ -20,7 +20,7 @@
                 <div class="collapse navbar-collapse" id="navbar">
                     <ul class="navbar-nav font-14 fw-300">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#" title="Shots">Designs</a>
+                            <nuxt-link :to="{ name:'designs.search'}" class="nav-link" >Designs</nuxt-link>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#" title="Designers"
@@ -79,24 +79,24 @@
                             aria-haspopup="true"
                             aria-expanded="false"
                         >
-                            <img
+                            <img v-if=" $auth.user "
                                 class="user-thumb"
                                 :src="$auth.user.photo_url"
                             />
                             <div class="usr-info">
                                 <span class="user-name font-14 fw-500"
-                                    >{{ $auth.user.name }}</span
+                                    v-if=" $auth.user">{{ $auth.user.name }}</span
                                 >
                                 <span class="user-deg font-10 fw-300"
-                                    >{{ $auth.user.tagline }}</span
+                                    v-if=" $auth.user">{{ $auth.user.tagline }}</span
                                 >
-                                <span class="down-chevron">
-                                    <i class="fa fa-angle-down"></i>
+                                <span v-if=" $auth.user" class="down-chevron">
+                                    <i v-if=" $auth.user" class="fa fa-angle-down"></i>
                                 </span>
                             </div>
                         </a>
                         <div
-                            class="dropdown-menu user-dropdown font-14 fw-500"
+                            v-if=" $auth.user" class="dropdown-menu user-dropdown font-14 fw-500"
                             aria-labelledby="userDropdown"
                         >  
                             <nuxt-link to="/settings/dashboard"
