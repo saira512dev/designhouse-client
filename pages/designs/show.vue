@@ -90,7 +90,7 @@
                                 <ul class="details-side-meta font-14 fw-400">
                                     <DesignLike :design="design"></DesignLike>
                                    
-                                    <li class="d-table w-100">
+                                    <li class="d-table w-100" v-if="moreDesigns">
                                         <div
                                             class="stats-txt d-table-cell w-100"
                                         >
@@ -103,17 +103,17 @@
                                 </ul>
                                 <!-- End Designer Design Info -->
                                 <!-- Designer More Designs -->
-                                <div class="more-designs-outer pb-3">
-                                    <ul class="more-designs row" v-for="moreDesign in moreDesigns" :key="moreDesign.id">
-                                        <li class="col-md-6">
-                                            <a :href="`/designs/${moreDesign.slug}`" v-if="moreDesign.id != design.id">
-                                                <img
-                                                    class="w-100"
-                                                    :src="moreDesign.images.thumbnail"
-                                                    alt="Image"
-                                                />
-                                            </a>
-                                        </li>
+                                <div class="more-designs-outer pb-3" v-if="moreDesigns">
+                                    <ul class="more-designs row"  >
+                                            <li class="col-md-6" v-for="moreDesign in moreDesigns" :key="moreDesign.id">
+                                                    <a :href="`/designs/${moreDesign.slug}`" >
+                                                        <img
+                                                            class="w-100"
+                                                            :src="moreDesign.images.thumbnail"
+                                                            alt="Image"
+                                                        />
+                                                    </a>
+                                            </li>
                                     </ul>
                                 </div>
                                 <!-- End Designer More Designs -->
@@ -157,12 +157,19 @@ export default {
           }),
         }
     },
-    async asyncData( { $axios, params ,error}){
+    async asyncData( { $axios, params ,error,designId}){
         try{
                 const response = await $axios.$get(`/designs/slug/${params.slug}`);
-                const secondResponse = await $axios.$get(`users/${response.data.user.id}/designs`);
-                //console.log(secondResponse.data);
-                return { design: response.data, comments: response.data.comments ,moreDesigns: secondResponse.data}
+                var secondResponse = await $axios.$get(`users/${response.data.user.id}/designs`);
+                var moreDesigns1 = secondResponse.data;
+                if(moreDesigns1.length > 0){
+                    for(var i= 0;i<moreDesigns1.length;i++){
+                        if(moreDesigns1[i].id == response.data.id){
+                            moreDesigns1.splice(i,1);
+                        }
+                    }
+                }
+                return { design: response.data, comments: response.data.comments ,moreDesigns: moreDesigns1}
         } catch(err ){
             if(err.response.status === 404){
                     error({statusCode: 404, message: "Design not found"});
