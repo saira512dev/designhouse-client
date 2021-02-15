@@ -6,7 +6,7 @@
         <form class="custom-form" @submit.prevent="update">
           <div class="row">
             <div class="col-md-6">
-              <alert-success :form="form">
+              <alert-success :form="form" v-if="updateSuccess">
                 Profile information updated successfully
               </alert-success>
 
@@ -65,8 +65,9 @@
 
 <script>
 export default {
-  data(){
+  data(){   
     return {
+      updateSuccess: false,
       form:this.$vform({
         name: '',
         about: '',
@@ -81,7 +82,7 @@ export default {
   methods: {
     update(){
       this.form.put(`/settings/profile`)
-        .then(res => console.log(res))
+        .then(res => console.log(res),this.updateSuccess = true)
         .catch(e => console.log(e))
     },
     handleAddress(data){
