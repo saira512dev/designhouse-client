@@ -7,7 +7,7 @@
                     >DesignHouse</nuxt-link>
                 
                 <button
-                    class="navbar-toggler mr-auto"
+                    class="navbar-toggler "
                     type="button"
                     data-toggle="collapse"
                     data-target="#navbar"

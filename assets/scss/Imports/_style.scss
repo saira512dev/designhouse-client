@@ -1731,7 +1731,8 @@ footer {
     left: 8%;
   }
   .navbar-toggler {
-    margin-left: -118px;
+    //margin-left: -118px;
+    position: relative;
   }
   .author-page {
     position: absolute;
@@ -1747,9 +1748,9 @@ footer {
   .navbar-dark .navbar-toggler {
     border-color: transparent;
   }
-  .navbar-toggler {
-    margin-left: -115px;
-  }
+//   .navbar-toggler {
+//     //margin-left: -115px;
+//   }
   .upload-shot {
     margin: 15px 0 8px 0;
   }
