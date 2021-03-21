@@ -16,14 +16,14 @@
                                             <h5
                                                 class="fw-500 text-uppercase mb-2"
                                             >
-                                                {{ design.title }}
+                                                Click To See More
                                             </h5>
                                             <p class="font-12 lh-16">
-                                                {{ design.description }}                                            </p>
+                                                <!-- {{ design.description }}                                            </p> -->
                                             <div
                                                 class="card-datetime font-10 fw-300"
                                             >
-                                                {{ design.created_at_dates.created_at_human }}
+                                                <!-- {{ design.created_at_dates.created_at_human }} -->
                                             </div>
                                         </div>
                                     </div>
