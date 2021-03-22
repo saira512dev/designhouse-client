@@ -45,7 +45,7 @@
         </section>
         <section class="cards-block">
             <div class="container">
-                <div class="row">
+                <div class="row" v-if="designs">
                     <base-design v-for="design in designs"
                         :key="design.id"
                         :design="design">
