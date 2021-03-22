@@ -1,6 +1,5 @@
 <template>
   <div>
-    <SiteHeader></SiteHeader>
     <SiteNavigation></SiteNavigation>
     <div class="wrapper">
       <Nuxt />
@@ -12,13 +11,11 @@
 <script>
 import SiteNavigation from './partials/navigation'
 import SiteFooter from './partials/footer'
-import SiteHeader from './partials/header'
 
 export default{
   components :{
     SiteNavigation,
     SiteFooter,
-    SiteHeader
   }
 }
 </script>
