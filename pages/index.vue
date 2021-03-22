@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
             <!-- Start Hero -->
-            <section class="hero text-center bg-light shadow-sm text-blue">
+            <section class="hero text-center bg-light shadow-sm text-blue" v-if="!$auth.loggedIn">
                 <div class="container">
                     <h1 class="font-28 fw-600 text-uppercase">
                         What are you working on?
